@@ -1,6 +1,6 @@
 import html
 import random
-import SnowWhiteRobot.modules.truth_and_dare_string as truth_and_dare_string
+import SnowWhiteRobot.modules.truth_and_dare_string as truth_and_dare
 from SnowWhiteRobot import dispatcher
 from telegram import ParseMode, Update, Bot
 from SnowWhiteRobot.modules.disable import DisableAbleCommandHandler
