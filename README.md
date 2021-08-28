@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://telegra.ph/file/701d8f34a35df3fb95524.jpg">
+  <img src="https://telegra.ph/file/7ef163b0310c7c9ffe9c9.jpg">
 </p>
 
 # Snow White Robot
@@ -61,5 +61,8 @@ For starters click on this button
 * [Discussion](https://telegram.dog/helpcentrebot1)
 * [Second Group](https://telegram.dog/fire_world_entertainment)
 
-## Credits, and Thanks to BOT OWNER
+## Credits, and Thanks to 
 * [The Ghost Hunter](https://telegram.dog/The_Ghost_Hunter)
+
+## BOT OWNER
+* [ATOP BEGAR](https://telegram.dog/ATOPBEGAR)
