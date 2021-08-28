@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="https://telegra.ph/file/701d8f34a35df3fb95524.jpg">
+  <img src="https://telegra.ph/file/49a0c96eed38dcbf20550.jpg">
 </p>
 
-# Snow White Robot
+# Fire Robot 
 
 ### Support Group On Telegram
 <p align="left">
-<a href="https://t.me/snow_white_support" alt="Telegram!"> <img src="https://aleen42.github.io/badges/src/telegram.svg" /> </a>
+<a href="https://t.me/gymglassheroes" alt="Telegram!"> <img src="https://aleen42.github.io/badges/src/telegram.svg" /> </a>
 
 ### Bot And Channel 
 * Bot Link:  <a href="http://t.me/SnowWhiteRoBot" alt="SnowWhiteRoBot"> <img src="https://img.shields.io/badge/%F0%9F%A4%96%20-snowwhitrerobot-blue" /> </a>
-* Support Channel: <a  href="https://t.me/robot_snow_white" alt="Help Centre Logs"> <img  src="https://img.shields.io/badge/%F0%9F%92%A1-snowwhite%20Log%20Channel-9cf" /> </a>
+* Support Channel: <a  href="https://t.me/gymglassheroes" alt="Help Centre Logs"> <img  src="https://img.shields.io/badge/%F0%9F%92%A1-snowwhite%20Log%20Channel-9cf" /> </a>
 
 ### Creating your own modules.
 
@@ -47,7 +47,7 @@ Make sure to edit the start and restart bats to your needs.
 Note: the restart bat requires that User account control be disabled.
 
 For queries or any issues regarding the bot please open an issue ticket or visit us at <p align="left">
-<a href="https://t.me/snow_white_support" alt="Telegram!"> <img src="https://aleen42.github.io/badges/src/telegram.svg" /> </a>
+<a href="https://t.me/gymglassheroes" alt="Telegram!"> <img src="https://aleen42.github.io/badges/src/telegram.svg" /> </a>
 
 ## How to setup on Heroku 
 For starters click on this button 
@@ -55,5 +55,8 @@ For starters click on this button
 <p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ZARUUUU/FIRE"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 
-## Credits, and Thanks to BOT OWNER
+## Credits, and Thanks to 
 * [The Ghost Hunter](https://telegram.dog/The_Ghost_Hunter)
+
+## BOT OWNER
+* [ATOP BEGAR](https://telegram.dog/ATOPBEGAR)
