@@ -7,7 +7,7 @@ from contextlib import suppress
 
 import SnowWhiteRobot.modules.sql.welcome_sql as sql
 import SnowWhiteRobot
-from AsunaRobot import (
+from SnowWhiteRobot import (
     DEV_USERS,
     LOGGER,
     OWNER_ID,
