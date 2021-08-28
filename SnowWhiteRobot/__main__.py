@@ -54,7 +54,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 Hi {}, my name is {}! 
 I am an Anime themed group management bot.
-Build by The Ghost Hunter for Entertainment groups, I specialize in managing anime and similar themed groups.
+Build by The Ghost Hunter and maintained by @ATOPBEGAR for Entertainment groups, I specialize in managing anime and similar themed groups.
 You can find my list of available commands with /help.
 """
 
@@ -77,7 +77,7 @@ And the following:
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
-SAITAMA_IMG = "https://telegra.ph/file/701d8f34a35df3fb95524.jpg"
+Snow_IMG = "https://telegra.ph/file/49a0c96eed38dcbf20550.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 Saitama is hosted on one of Kaizoku's Servers and doesn't require any donations as of now but \
@@ -207,20 +207,20 @@ def start(update: Update, context: CallbackContext):
                      [
                          InlineKeyboardButton(
                              text="Support Group",
-                             url=f"https://t.me/helpcenterbot1"),
+                             url=f"https://t.me/gymglassheroes"),
                          InlineKeyboardButton(
-                             text="Update Loges",
-                             url="https://t.me/helpcenterbotloges")
+                             text="Update channel",
+                             url="https://t.me/SEKERNETWORK")
                      ],
                      [
                          InlineKeyboardButton(
-                             text="FireWorldEntertainment Chat Group",
-                             url="https://t.me/fire_world_entertainment")
+                             text="Bot Logs Channel",
+                             url="https://t.me/log232")
                      ],
                      [
                          InlineKeyboardButton(
                              text="Source Code.",
-                             url="https://github.com//HuntingBots/SnowWhiteRoBot/")
+                             url="https://github.com/ZARUUUU/FIRE/")
                      
 
 
@@ -229,7 +229,7 @@ def start(update: Update, context: CallbackContext):
                       [
                          InlineKeyboardButton(
                              text="My Master.",
-                             url="https://t.me/The_Ghost_Hunter")
+                             url="https://t.me/ATOPBEGAR")
                      ]]))
     else:
         update.effective_message.reply_text(
