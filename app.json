@@ -1,5 +1,5 @@
 {
-      "name": "BOTFATHER",
+      "name": "Fire Robot",
       "description": "An Anime themed Telegram group management bot.",
       "keywords": [
          "telegram",
@@ -8,7 +8,7 @@
          "manager",
          "SnowWhite"
       ],   
-  "logo":    "https://telegra.ph/file/7ef163b0310c7c9ffe9c9.jpg",
+  "logo":    "https://telegra.ph/file/49a0c96eed38dcbf20550.jpg",
  "repository": "https://github.com/ZARUUUU/FIRE",
 
 "addons": [
