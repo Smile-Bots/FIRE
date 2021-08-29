@@ -20,7 +20,7 @@ from SnowWhiteRobot.__main__ import STATS, TOKEN, USER_INFO
 import SnowWhiteRobot.modules.sql.userinfo_sql as sql
 from SnowWhiteRobot.modules.disable import DisableAbleCommandHandler
 from SnowWhiteRobot.modules.sql.global_bans_sql import is_user_gbanned
-from GabiBraunRobot.modules.sql.afk_redis import is_user_afk, afk_reason
+from SnowWhiteRobot.modules.sql.afk_redis import is_user_afk, afk_reason
 from SnowWhiteRobot.modules.sql.users_sql import get_user_num_chats
 from SnowWhiteRobot.modules.sql.feds_sql import get_user_fbanlist
 from SnowWhiteRobot.modules.helper_funcs.chat_status import sudo_plus
