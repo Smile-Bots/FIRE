@@ -272,26 +272,26 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThis user is Shinobu's 'Owner'."
+        text += "\n\nThe Disaster level of this person is 'God'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThe Disaster level of this person is 'Sensei'."
+        text += "\n\nThis user is Gabi's 'Frined'."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThe Disaster level of this person is 'Hashira'."
+        text += "\n\nThe Disaster level of this person is 'Dragon'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe Disaster level of this person is 'Kinoe'."
+        text += "\n\nThe Disaster level of this person is 'Demon'."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThe Disaster level of this person is 'Mizunoto'."
+        text += "\n\nThe Disaster level of this person is 'Tiger'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThe Disaster level of this person is 'Demon'."
+        text += "\n\nThe Disaster level of this person is 'Wolf'."
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/Shinobu_Update_Channel/6">Explained</a>]'.format(
+        text += ' [<a href="https://t.me/Gabi_Support_Log/9">?</a>]'.format(
             bot.username)
 
     try:
@@ -514,7 +514,7 @@ Examples:
  • `/info`*:* get information about a user. 
  
 *What is that health thingy?*
- Come and see [HP System explained](https://t.me/Shinobu_Update_Channel/8)
+ Come and see [HP System explained](https://t.me/Gabi_Support_Log/9)
 """
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio)
