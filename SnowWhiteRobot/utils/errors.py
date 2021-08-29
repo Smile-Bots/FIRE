@@ -7,7 +7,7 @@ from functools import wraps
 
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
-from AsunaRobot import LOGGER, kp as app
+from SnowWhiteRobot import LOGGER, pgram as app
 
 
 def split_limits(text):
