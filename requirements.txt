@@ -39,6 +39,7 @@ nekos.py
 pybase64
 youtube-dl
 youtube_search
+youtube_search_python
 pySmartDL
 pytz
 validators
