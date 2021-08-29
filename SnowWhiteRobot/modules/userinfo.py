@@ -20,7 +20,7 @@ from SnowWhiteRobot.__main__ import STATS, TOKEN, USER_INFO
 import SnowWhiteRobot.modules.sql.userinfo_sql as sql
 from SnowWhiteRobot.modules.disable import DisableAbleCommandHandler
 from SnowWhiteRobot.modules.sql.global_bans_sql import is_user_gbanned
-from SnowWhiteRobot.modules.sql.afk_redis import is_user_afk, afk_reason
+from SnowWhiteRobot.modules.Redis.afk_redis import is_user_afk, afk_reason
 from SnowWhiteRobot.modules.sql.users_sql import get_user_num_chats
 from SnowWhiteRobot.modules.sql.feds_sql import get_user_fbanlist
 from SnowWhiteRobot.modules.helper_funcs.chat_status import sudo_plus
@@ -272,26 +272,26 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThe Disaster level of this person is 'God'."
+        text += "\n\nThis user is Shinobu's 'Owner'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis user is Gabi's 'Frined'."
+        text += "\n\nThe Disaster level of this person is 'Sensei'."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThe Disaster level of this person is 'Dragon'."
+        text += "\n\nThe Disaster level of this person is 'Hashira'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe Disaster level of this person is 'Demon'."
+        text += "\n\nThe Disaster level of this person is 'Kinoe'."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThe Disaster level of this person is 'Tiger'."
+        text += "\n\nThe Disaster level of this person is 'Mizunoto'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThe Disaster level of this person is 'Wolf'."
+        text += "\n\nThe Disaster level of this person is 'Demon'."
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/Gabi_Support_Log/9">?</a>]'.format(
+        text += ' [<a href="https://t.me/Shinobu_Update_Channel/6">Explained</a>]'.format(
             bot.username)
 
     try:
@@ -514,7 +514,7 @@ Examples:
  • `/info`*:* get information about a user. 
  
 *What is that health thingy?*
- Come and see [HP System explained](https://t.me/Gabi_Support_Log/9)
+ Come and see [HP System explained](https://t.me/Shinobu_Update_Channel/8)
 """
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio)
