@@ -1,144 +1,47 @@
-import SnowWhiteRobot.modules.sql.blacklistusers_sql as sql
-from SnowWhiteRobot import ALLOW_EXCL
-from SnowWhiteRobot import (DEV_USERS, DRAGONS, DEMONS, TIGERS, WOLVES)
-
-from telegram import Update
-from telegram.ext import CommandHandler, MessageHandler, RegexHandler, Filters
-from pyrate_limiter import (BucketFullException, Duration, RequestRate, Limiter,
-                            MemoryListBucket)
-
-if ALLOW_EXCL:
-    CMD_STARTERS = ('/', '!')
-else:
-    CMD_STARTERS = ('/',)
+from SnowWhiteRobot import DEV_USERS, DRAGONS, DEMONS
+from telegram import Message
+from telegram.ext import BaseFilter
 
 
-class AntiSpam:
+class CustomFilters(object):
+    class _Supporters(BaseFilter):
+        def filter(self, message: Message):
+            return bool(message.from_user and message.from_user.id in DEMONS)
 
-    def __init__(self):
-        self.whitelist = (DEV_USERS or []) + (DRAGONS or []) + (
-            WOLVES or []) + (DEMONS or []) + (
-                TIGERS or [])
-        #Values are HIGHLY experimental, its recommended you pay attention to our commits as we will be adjusting the values over time with what suits best.
-        Duration.CUSTOM = 15  # Custom duration, 15 seconds
-        self.sec_limit = RequestRate(6, Duration.CUSTOM)  # 6 / Per 15 Seconds
-        self.min_limit = RequestRate(20, Duration.MINUTE)  # 20 / Per minute
-        self.hour_limit = RequestRate(100, Duration.HOUR)  # 100 / Per hour
-        self.daily_limit = RequestRate(1000, Duration.DAY)  # 1000 / Per day
-        self.limiter = Limiter(
-            self.sec_limit,
-            self.min_limit,
-            self.hour_limit,
-            self.daily_limit,
-            bucket_class=MemoryListBucket)
+    support_filter = _Supporters()
 
-    def check_user(self, user):
-        """
-        Return True if user is to be ignored else False
-        """
-        if user in self.whitelist:
-            return False
-        try:
-            self.limiter.try_acquire(user)
-            return False
-        except BucketFullException:
-            return True
+    class _Sudoers(BaseFilter):
+        def filter(self, message: Message):
+            return bool(message.from_user and message.from_user.id in DRAGONS)
 
+    sudo_filter = _Sudoers()
 
-SpamChecker = AntiSpam()
-MessageHandlerChecker = AntiSpam()
+    class _Developers(BaseFilter):
+        def filter(self, message: Message):
+            return bool(message.from_user and message.from_user.id in DEV_USERS)
 
+    dev_filter = _Developers()
 
-class CustomCommandHandler(CommandHandler):
+    class _MimeType(BaseFilter):
+        def __init__(self, mimetype):
+            self.mime_type = mimetype
+            self.name = "CustomFilters.mime_type({})".format(self.mime_type)
 
-    def __init__(self,
-                 command,
-                 callback,
-                 admin_ok=False,
-                 allow_edit=False,
-                 **kwargs):
-        super().__init__(command, callback, **kwargs)
+        def filter(self, message: Message):
+            return bool(
+                message.document and message.document.mime_type == self.mime_type
+            )
 
-        if allow_edit is False:
-            self.filters &= ~(
-                Filters.update.edited_message
-                | Filters.update.edited_channel_post)
+    mime_type = _MimeType
 
-    def check_update(self, update):
-        if isinstance(update, Update) and update.effective_message:
-            message = update.effective_message
+    class _HasText(BaseFilter):
+        def filter(self, message: Message):
+            return bool(
+                message.text
+                or message.sticker
+                or message.photo
+                or message.document
+                or message.video
+            )
 
-            try:
-                user_id = update.effective_user.id
-            except:
-                user_id = None
-
-            if user_id:
-                if sql.is_user_blacklisted(user_id):
-                    return False
-
-            if message.text and len(message.text) > 1:
-                fst_word = message.text.split(None, 1)[0]
-                if len(fst_word) > 1 and any(
-                        fst_word.startswith(start) for start in CMD_STARTERS):
-
-                    args = message.text.split()[1:]
-                    command = fst_word[1:].split("@")
-                    command.append(message.bot.username)
-                    if user_id == 1087968824:
-                        user_id = update.effective_chat.id
-                    if not (command[0].lower() in self.command and
-                            command[1].lower() == message.bot.username.lower()):
-                        return None
-                    if SpamChecker.check_user(user_id):
-                        return None
-                    filter_result = self.filters(update)
-                    if filter_result:
-                        return args, filter_result
-                    else:
-                        return False
-
-    def handle_update(self, update, dispatcher, check_result, context=None):
-        if context:
-            self.collect_additional_context(context, update, dispatcher,
-                                            check_result)
-            return self.callback(update, context)
-        else:
-            optional_args = self.collect_optional_args(dispatcher, update,
-                                                       check_result)
-            return self.callback(dispatcher.bot, update, **optional_args)
-
-    def collect_additional_context(self, context, update, dispatcher,
-                                   check_result):
-        if isinstance(check_result, bool):
-            context.args = update.effective_message.text.split()[1:]
-        else:
-            context.args = check_result[0]
-            if isinstance(check_result[1], dict):
-                context.update(check_result[1])
-
-
-class CustomRegexHandler(RegexHandler):
-
-    def __init__(self, pattern, callback, friendly="", **kwargs):
-        super().__init__(pattern, callback, **kwargs)
-
-
-class CustomMessageHandler(MessageHandler):
-
-    def __init__(self,
-                 filters,
-                 callback,
-                 friendly="",
-                 allow_edit=False,
-                 **kwargs):
-        super().__init__(filters, callback, **kwargs)
-        if allow_edit is False:
-            self.filters &= ~(
-                Filters.update.edited_message
-                | Filters.update.edited_channel_post)
-
-        def check_update(self, update):
-            if isinstance(update, Update) and update.effective_message:
-                return self.filters(update)
-
+    has_text = _HasText()
